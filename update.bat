@@ -1,4 +1,4 @@
 chcp 65001
 git add --all
-git commit -m "연산자 입력과 계산 기능 추가"
+git commit -m "단순 계산기 완성"
 git push -u origin master

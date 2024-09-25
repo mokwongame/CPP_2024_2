@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <conio.h> // console I/O의 기능을 포함하기
+#include <math.h> // 수학 함수가 있는 헤더 파일
 
 // 개발 목표: 단순 계산기
 // - 입력을 char로 받아서 숫자로 계산: 문자 입력 + 문자의 숫자 변환 필요
@@ -18,7 +19,7 @@ int getInt()
 	return x; // 값 반환 방법: return 변수명(상수)
 }
 
-int main()
+char calc()
 {
 	// x, y 입력
 	printf("값 x를 입력하세요: ");
@@ -36,14 +37,32 @@ int main()
 	// 조건문을 사용해 계산
 	// 단순 조건문은 switch 구문이 유리
 	// switch (판단식) { case 값: 구문; break; }
-	int z;
+	//int z;
+	double z = 0.; // 실수 저장 공간 확보
 	switch (op)
 	{
 	case '+': z = x + y; break;
+	case 's': z = sin(x); break; // 사인 함수 호출
 	}
 
 	// 결과 출력
-	printf("\n=== 답: %d ===\n", z);
+	//printf("\n=== 답: %d ===\n", z); // 정수는 %d로 출력
+	printf("\n=== 답: %g ===\n", z); // 실수는 %g로 출력
+
+	return op;
+}
+
+int main()
+{
+	while (1) // calc를 무한 반복
+	{
+		char op = calc();
+		if (op == 'x')
+		{
+			printf("\n 계산기를 종료합니다. \n");
+			break; // 반복문을 빠져나올려면 break를 실행
+		}
+	}
 
 	return 0; // 값을 0으로 반환(return)
 }
