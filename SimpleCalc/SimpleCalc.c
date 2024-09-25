@@ -20,12 +20,30 @@ int getInt()
 
 int main()
 {
+	// x, y 입력
 	printf("값 x를 입력하세요: ");
 	int x = getInt();
 	printf("\n입력한 값은 x = %d\n", x);
 	printf("값 y를 입력하세요: ");
 	int y = getInt();
 	printf("\n입력한 값은 y = %d\n", y);
+
+	// 연산자 입력
+	printf("연산자(+-*/%%sctel)를 입력하세요: ");
+	char op = _getche();
+	printf("\n입력한 연산자는 op = %c\n", op);
+
+	// 조건문을 사용해 계산
+	// 단순 조건문은 switch 구문이 유리
+	// switch (판단식) { case 값: 구문; break; }
+	int z;
+	switch (op)
+	{
+	case '+': z = x + y; break;
+	}
+
+	// 결과 출력
+	printf("\n=== 답: %d ===\n", z);
 
 	return 0; // 값을 0으로 반환(return)
 }
