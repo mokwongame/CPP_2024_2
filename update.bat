@@ -1,4 +1,4 @@
 chcp 65001
 git add --all
-git commit -m "반복문과 함수 정의 연습"
+git commit -m "SimpleCalc 프로젝트 시작"
 git push -u origin master
