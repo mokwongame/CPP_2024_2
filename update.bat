@@ -1,4 +1,4 @@
 chcp 65001
 git add --all
-git commit -m "영문명 출력 함수 추가"
+git commit -m "4번 메뉴 설명 추가"
 git push -u origin master
