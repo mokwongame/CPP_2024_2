@@ -28,13 +28,19 @@ namespace mokwon
 		cout << "1. 영문명" << endl;
 		cout << "2. 주소" << endl;
 		cout << "3. 재학생수" << endl;
-		cout << "4. 단과대 소개" << endl;
+		cout << "4. 단과대 소개" << endl; // 사용자가 알파벳을 입력하면 단과대 이름을 출력하는 기능
 		cout << "======================" << endl;
 		// 메뉴 입력
 		int nMenu = 0;
 		cout << "메뉴 번호를 선택하세요: ";
 		cin >> nMenu; // >> 의미: 스트리밍 입력
 		return nMenu;
+	}
+
+	void printEngName(void)
+	{
+		using namespace std;
+		cout << endl << "목원대학교의 영문명은 Mokwon University입니다." << endl << endl;
 	}
 
 	inline void intro(void)
@@ -45,6 +51,13 @@ namespace mokwon
 		while (1) // 무한 반복의 대표적 코드
 		{
 			int nMenu = printMenu();
+			// 정수를 판단해서 조건문을 실행할 때는 if/else보다 switch/case가 더 좋음
+			switch (nMenu)
+			{
+			case 1: printEngName();
+				break;
+			default: cout << endl << "잘못된 메뉴 번호입니다." << endl << endl;
+			}
 		}
 	}
 }
