@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include "LibConsole.hpp"
 
 // 클래스는 객체(문제를 푸는 기본 구조)의 설계도
 // 클래스 정의: class 클래스명 {...}
@@ -38,6 +39,12 @@ public: // : 의미는 그룹을 뜻함
 	{
 		// 네임스페이스의 멤버 접근 = 네임스페이스명::멤버
 		std::cout << '(' << m_x << ", " << m_y << ')';
+	}
+	void printChar(char ch)
+	{
+		// 커서를 (m_x, m_y)로 이동
+		mglib::gotoxy(m_x, m_y); // mglib는 namespace이고 LibConsole.hpp에 정의
+		std::cout << ch;
 	}
 
 // protected 그룹(외부에서 접근 불가능)

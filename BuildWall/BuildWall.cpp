@@ -9,10 +9,12 @@ int main(void)
 	// 클래스 멤버 접근 = 클래스명::멤버명
 	// 인스턴스 멤버 접근 = 인스턴스명.멤버명(struct와 동일)
 	pt.setX(10);
-	pt.setY(-20);
+	pt.setY(20);
 
 	pt.print();
 	pt2.print();
+	
+	pt.printChar('*');
 
 	return 0;
 }
