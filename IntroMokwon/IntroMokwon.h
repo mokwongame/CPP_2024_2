@@ -37,10 +37,36 @@ namespace mokwon
 		return nMenu;
 	}
 
-	void printEngName(void)
+	inline void printEngName(void)
 	{
 		using namespace std;
 		cout << endl << "목원대학교의 영문명은 Mokwon University입니다." << endl << endl;
+	}
+
+	inline void printCollegeName(char ch)
+	{
+		using namespace std;
+		ch = toupper(ch); // toupper() 함수: 대문자로 바꾸는 함수
+		// if ... else ... 도 가능
+		switch (ch)
+		{
+		case 'D':
+			cout << "D는 공과대학입니다.";
+			break;
+		default: 
+			cout << ch << "는 잘못된 입력입니다.";
+		}
+		cout << endl;
+	}
+
+	inline void printCollege(void)
+	{
+		using namespace std;
+		cout << endl << "단과대의 알파벳을 입력하세요: ";
+		char ch;
+		cin >> ch;
+		cout << endl << "입력한 알파벳은 " << ch << "입니다." << endl;
+		printCollegeName(ch);
 	}
 
 	inline void intro(void)
@@ -56,6 +82,7 @@ namespace mokwon
 			{
 			case 1: printEngName();
 				break;
+			case 4: printCollege();
 			default: cout << endl << "잘못된 메뉴 번호입니다." << endl << endl;
 			}
 		}
