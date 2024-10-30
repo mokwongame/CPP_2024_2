@@ -41,12 +41,21 @@ public:
 		m_backCol = backCol;
 	}
 
-	void makeHWall(Point2 pt, int count)
+	void makeHWall(Point2 pt, int count) // 수평(horizontal) 벽
 	{
 		for (int i = 0; i < count; i++)
 		{
 			pt.printChar(m_shape, m_textCol, m_backCol);
 			pt.moveRight();
+		}
+	}
+
+	void makeVWall(Point2 pt, int count) // 수직(vertical) 벽
+	{
+		for (int i = 0; i < count; i++)
+		{
+			pt.printChar(m_shape, m_textCol, m_backCol);
+			pt.moveDown();
 		}
 	}
 
