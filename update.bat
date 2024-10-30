@@ -1,4 +1,4 @@
 chcp 65001
 git add --all
-git commit -m "LibConsole 헤더 파일 추가"
+git commit -m "Point2 클래스 완성"
 git push -u origin master

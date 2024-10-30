@@ -34,6 +34,33 @@ public: // : 의미는 그룹을 뜻함
 	{
 		m_y = y;
 	}
+	void setPt(int x, int y)
+	{
+		setX(x);
+		setY(y);
+	}
+	// 현재 위치를 (stepX, stepY)만큼 이동
+	void move(int stepX, int stepY)
+	{
+		m_x += stepX; // m_x = m_x + stepX
+		m_y += stepY;
+	}
+	void moveLeft(int step = 1)
+	{
+		move(-step, 0); // x 좌표가 줄어들면(-) 왼쪽으로 이동
+	}
+	void moveRight(int step = 1)
+	{
+		move(step, 0); // x 좌표가 늘어나면(+) 오른쪽으로 이동
+	}
+	void moveUp(int step = 1)
+	{
+		move(0, -step); // y 좌표가 줄어들면(-) 위로 이동
+	}
+	void moveDown(int step = 1)
+	{
+		move(0, step); // y 좌표가 늘어나면(+) 아래로 이동
+	}
 
 	void print(void) // protected, private 멤버는 클래스 안에서는 자유롭게 접근
 	{
@@ -45,6 +72,13 @@ public: // : 의미는 그룹을 뜻함
 		// 커서를 (m_x, m_y)로 이동
 		mglib::gotoxy(m_x, m_y); // mglib는 namespace이고 LibConsole.hpp에 정의
 		std::cout << ch;
+	}
+	// C++에서는 같은 이름의 함수가 허용됨: 대신 입력 변수가 달라야 함
+	//  함수 입력에 있는 =의 의미: 입력하지 않으면 사용되는 디폴트 값
+	void printChar(char ch, int textCol, int backCol = mglib::BLACK)
+	{
+		mglib::setbacktextcol(backCol, textCol);
+		printChar(ch);
 	}
 
 // protected 그룹(외부에서 접근 불가능)
