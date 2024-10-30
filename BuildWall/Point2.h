@@ -15,6 +15,23 @@ public: // : 의미는 그룹을 뜻함
 	// 클래스 안에 있는 함수 정의는 inline 함수 정의: inline을 생략
 	// 클래스 밖에 있으면 inline을 써야 함
 	
+	// 생성자(constructor): 이 클래스의 인스턴스가 생성될 때 자동으로 호출되는 함수 -> 초기화; 클래스명과 같은 이름의 함수
+	Point2(void) // 출력 자료형은 쓰면 안됨
+	{
+		setPt(0, 0); // 원점 초기화
+	}
+	Point2(int x, int y)
+	{
+		setPt(x, y);
+	}
+
+	// 소멸자(destructor): 이 클래스의 인스턴스가 소멸될 때 자동으로 호출되는 함수 -> 뒷정리; 클래스명 앞에 ~(not 연산)을 붙인 함수
+	~Point2() // 입력과 출력에 아무것도 안됨
+	{
+		//std::cout << "소멸되었음" << std::endl;
+	}
+
+
 	// 멤버 함수(메소드, method)
 	// getter, setter: 프로퍼티 접근 함수
 	int getX(void) const // const 원래 의미: 변수(variable)를 상수(constant number)로 취급; 메소드 뒤에 있는 const 의미: 프로퍼티를 상수로 취급

@@ -1,4 +1,4 @@
 chcp 65001
 git add --all
-git commit -m "Point2 클래스 완성"
+git commit -m "가로 벽 그리기 추가"
 git push -u origin master

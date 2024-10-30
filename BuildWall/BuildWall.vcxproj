@@ -127,10 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BuildWall.cpp" />
+    <ClCompile Include="TestWallcpp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Point2.h" />
+    <ClInclude Include="Wall.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
