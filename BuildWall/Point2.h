@@ -114,6 +114,12 @@ public: // : 의미는 그룹을 뜻함
 		printChar(ch);
 	}
 
+	// 정적(static) 멤버(공통되는 멤버는 메모리를 고정해서 사용: 메모리 효율 향상) 연습용 코드
+	static void printStr(void) // 아래 코드는 멤버 변수(property)에 접근하지 않음 -> 정적 멤버로 선언하면 효율적임
+	{
+		std::cout << "static test code" << std::endl;
+	}
+
 	// protected 그룹(외부에서 접근 불가능)
 protected:
 	// 멤버 변수(프로퍼티, property) 선언 -> 정의도 가능

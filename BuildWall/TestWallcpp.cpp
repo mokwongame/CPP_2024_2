@@ -16,5 +16,11 @@ int main(void)
 	wall.makeVWall(Point2(0, 0), 20);
 	wall.makeVWall(Point2(79, 0), 20);
 
+	// 일반 메소드 호출
+	//Point2 pt;
+	//pt.printStr();
+	// 정적 메소드 호출: 클래스 호출이라서 클래스명::멤버로 호출
+	Point2::printStr();
+
 	while (!_kbhit());
 }
