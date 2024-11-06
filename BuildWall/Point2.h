@@ -10,11 +10,11 @@
 // 멤버 등급(외부 접근): public(공공의: O), protected(보호된: X), private(사적인: X)
 class Point2
 {
-// public 그룹(외부에서 접근 가능): public 멤버의 집합체
+	// public 그룹(외부에서 접근 가능): public 멤버의 집합체
 public: // : 의미는 그룹을 뜻함
 	// 클래스 안에 있는 함수 정의는 inline 함수 정의: inline을 생략
 	// 클래스 밖에 있으면 inline을 써야 함
-	
+
 	// 생성자(constructor): 이 클래스의 인스턴스가 생성될 때 자동으로 호출되는 함수 -> 초기화; 클래스명과 같은 이름의 함수
 	Point2(void) // 출력 자료형은 쓰면 안됨
 	{
@@ -23,6 +23,13 @@ public: // : 의미는 그룹을 뜻함
 	Point2(int x, int y)
 	{
 		setPt(x, y);
+	}
+	// 복사 생성자(copy constructor): 클래스명(const 클래스명& 변수명)
+	// 동일한 인스턴스(클래스명이 같음)의 레퍼런스(&: 읽기, 쓰기 O)를 상수(const: 쓰기 X) 형태로 받아서 현재 클래스를 초기화
+	Point2(const Point2& pt)
+	{
+		//setPt(pt.m_x, pt.m_y);
+		setPt(pt);
 	}
 
 	// 소멸자(destructor): 이 클래스의 인스턴스가 소멸될 때 자동으로 호출되는 함수 -> 뒷정리; 클래스명 앞에 ~(not 연산)을 붙인 함수
@@ -42,6 +49,10 @@ public: // : 의미는 그룹을 뜻함
 	{
 		return m_y;
 	}
+	Point2 getPt(void) const
+	{
+		return Point2(m_x, m_y);
+	}
 
 	void setX(int x)
 	{
@@ -56,6 +67,11 @@ public: // : 의미는 그룹을 뜻함
 		setX(x);
 		setY(y);
 	}
+	void setPt(const Point2& pt)
+	{
+		setPt(pt.m_x, pt.m_y);
+	}
+
 	// 현재 위치를 (stepX, stepY)만큼 이동
 	void move(int stepX, int stepY)
 	{
@@ -98,7 +114,7 @@ public: // : 의미는 그룹을 뜻함
 		printChar(ch);
 	}
 
-// protected 그룹(외부에서 접근 불가능)
+	// protected 그룹(외부에서 접근 불가능)
 protected:
 	// 멤버 변수(프로퍼티, property) 선언 -> 정의도 가능
 	int m_x = 0; // m_ 의미: 멤버(member)란 뜻
