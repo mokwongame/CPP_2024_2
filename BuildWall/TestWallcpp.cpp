@@ -20,7 +20,8 @@ int main(void)
 	//Point2 pt;
 	//pt.printStr();
 	// 정적 메소드 호출: 클래스 호출이라서 클래스명::멤버로 호출
-	Point2::printStr();
+	mglib::gotoxy(0, 0);
+	Point2::printStr("first test");
 
 	while (!_kbhit());
 }

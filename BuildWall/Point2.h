@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <string> // 확장자 h가 없음: C++ 표준 헤더 파일이라서
 #include "LibConsole.hpp"
 
 // 클래스는 객체(문제를 푸는 기본 구조)의 설계도
@@ -115,9 +116,17 @@ public: // : 의미는 그룹을 뜻함
 	}
 
 	// 정적(static) 멤버(공통되는 멤버는 메모리를 고정해서 사용: 메모리 효율 향상) 연습용 코드
-	static void printStr(void) // 아래 코드는 멤버 변수(property)에 접근하지 않음 -> 정적 멤버로 선언하면 효율적임
+	static void printStr(const std::string& str) // 아래 코드는 멤버 변수(property)에 접근하지 않음 -> 정적 멤버로 선언하면 효율적임
 	{
-		std::cout << "static test code" << std::endl;
+		using namespace std;
+		//std::cout << "static test code" << std::endl;
+		// string 클래스의 사용법 찾기: Microsoft Learn에서 string 클래스로 검색
+		std::cout << str << std::endl;
+		// string 길이 얻기: length()
+		cout << str.length() << endl;
+		string str2 = "[" + str + "]"; // 문자열에 다른 문자열 붙이기
+		cout << str2 << endl;
+		cout << str2.length() << endl;
 	}
 
 	// protected 그룹(외부에서 접근 불가능)
