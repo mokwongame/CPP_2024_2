@@ -1,6 +1,7 @@
 #include <conio.h>
 #include "RectWall.h"
 #include "Fruit.h"
+#include "Snake.h"
 
 // 난수 발생기는 LibGameTool.hpp에 정의: GitHub > MgHead에서 다운로드
 // - mglib::randseed(): 난수를 무작위로 초기화
@@ -16,6 +17,9 @@ int main(void)
 
 	Fruit fruit(mglib::SKYBLUE, mglib::RED);
 	fruit.draw(Point2(1, 1), Point2(99, 24));
+
+	Snake snake(mglib::RED, mglib::GREEN);
+	snake.draw(Point2(50, 12));
 
 	while (!_kbhit());
 	return 0;
