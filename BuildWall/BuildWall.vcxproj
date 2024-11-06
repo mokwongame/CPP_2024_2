@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Fruit.h" />
     <ClInclude Include="Point2.h" />
     <ClInclude Include="RectWall.h" />
     <ClInclude Include="Wall.h" />
