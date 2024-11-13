@@ -63,6 +63,26 @@ public:
 		m_pt.printChar(m_shape, m_textCol, m_backCol);
 	}
 
+	void move(void)
+	{
+		switch (m_nDir)
+		{
+		case SnakeDir::LEFT:
+			m_pt = m_pt - Point2(1, 0);
+			break;
+		case SnakeDir::RIGHT:
+			m_pt = m_pt + Point2(1, 0);
+			break;
+		case SnakeDir::UP:
+			m_pt = m_pt - Point2(0, 1);
+			break;
+		case SnakeDir::DOWN:
+			m_pt = m_pt + Point2(0, 1);
+			break;
+		}
+		m_pt.printChar(m_shape, m_textCol, m_backCol);
+	}
+
 protected:
 	char m_shape;
 	int m_textCol;

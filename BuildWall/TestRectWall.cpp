@@ -1,4 +1,5 @@
 #include <conio.h>
+#include <Windows.h> // Sleep이 정의
 #include "RectWall.h"
 #include "Fruit.h"
 #include "Snake.h"
@@ -45,8 +46,10 @@ int main(void)
 				snake.setShape('v');
 				break;
 			}
-			//snake.move();
 		}
+		snake.move();
+		// :: 의미 -> 앞에 네임스페이스명이 없음 -> 전역 네임스페이스(global namespace) -> 사실은 전역 변수 혹은 멤버
+		::Sleep(100); // 현재 실행을 잠시 정지(잠자기, sleep); 단위는 msec
 	}
 	return 0;
 }
