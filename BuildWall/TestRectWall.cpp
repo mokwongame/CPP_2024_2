@@ -21,6 +21,32 @@ int main(void)
 	Snake snake(mglib::RED, mglib::GREEN);
 	snake.draw(Point2(50, 12));
 
-	while (!_kbhit());
+	while (1)
+	{
+		if (_kbhit()) // 키보드(kb: keyboard)가 눌러지면(if hit)
+		{
+			int key = mglib::getkey();
+			switch (key)
+			{
+			case mglib::IK_LEFT:
+				snake.setDir(SnakeDir::LEFT);
+				snake.setShape('<');
+				break;
+			case mglib::IK_RIGHT:
+				snake.setDir(SnakeDir::RIGHT);
+				snake.setShape('>');
+				break;
+			case mglib::IK_UP:
+				snake.setDir(SnakeDir::UP);
+				snake.setShape('^');
+				break;
+			case mglib::IK_DOWN:
+				snake.setDir(SnakeDir::DOWN);
+				snake.setShape('v');
+				break;
+			}
+			//snake.move();
+		}
+	}
 	return 0;
 }

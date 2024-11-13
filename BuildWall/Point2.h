@@ -129,9 +129,44 @@ public: // : 의미는 그룹을 뜻함
 		cout << str2.length() << endl;
 	}
 
+	// 연산자 중복(operator overloading)
+	// 자료형 operator 중복시킬_연산자_기호(입력 변수 선언): 마치 메소드처럼 정의
+	Point2& operator=(const Point2& pt) // 할당 연산자의 중복: 출력 = 입력; x(왼쪽 값: &) = y(오른쪽 값: const)
+	{
+		m_x = pt.m_x;
+		m_y = pt.m_y;
+		// 레퍼런스 넘기는 방법: *pointer -> *this
+		// 현재 인스턴스의 포인터는? this
+		return *this; // w = x = y;
+	}
+
+	// 프렌드 함수: 메소드는 아니지만 멤버에 접근 가능한 함수
+	// 사용 방법: 함수 선언 앞에 friend 붙임
+	friend Point2 operator+(const Point2& pt1, const Point2& pt2);
+	friend Point2 operator-(const Point2& pt1, const Point2& pt2);
+
 	// protected 그룹(외부에서 접근 불가능)
 protected:
 	// 멤버 변수(프로퍼티, property) 선언 -> 정의도 가능
 	int m_x = 0; // m_ 의미: 멤버(member)란 뜻
 	int m_y = 0;
 };
+
+// ostream: output stream; cout
+inline std::ostream& operator<<(std::ostream& stream, const Point2& pt)
+{
+	stream << "(" << pt.getX() << ", " << pt.getY() << ")";
+	return stream;
+}
+
+// + 연산자 중복: c = a+b
+// 아래 이항(항이 2개) 연산자는 인라인 함수라서 protected 멤버에 접근 불가능 -> 프렌드(friend) 함수 사용 가능
+inline Point2 operator+(const Point2& pt1, const Point2& pt2)
+{
+	return Point2(pt1.m_x + pt2.m_x, pt1.m_y + pt2.m_y);
+}
+
+inline Point2 operator-(const Point2& pt1, const Point2& pt2)
+{
+	return Point2(pt1.m_x - pt2.m_x, pt1.m_y - pt2.m_y);
+}
