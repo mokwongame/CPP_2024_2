@@ -170,3 +170,9 @@ inline Point2 operator-(const Point2& pt1, const Point2& pt2)
 {
 	return Point2(pt1.m_x - pt2.m_x, pt1.m_y - pt2.m_y);
 }
+
+// 등호 연산자 중복
+inline bool operator==(const Point2& pt1, const Point2& pt2)
+{
+	return (pt1.getX() == pt2.getX()) && (pt1.getY() == pt2.getY());
+}

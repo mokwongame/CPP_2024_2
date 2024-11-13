@@ -10,6 +10,8 @@
 
 int main(void)
 {
+	int nScore = 0;
+
 	// 난수 초기화
 	mglib::randseed();
 
@@ -48,6 +50,14 @@ int main(void)
 			}
 		}
 		snake.move();
+		// 과일과 벽에 충돌했는지 확인
+		if (fruit.isHit(snake.getPt()))
+		{
+			nScore++;
+			//Point2 pt(0, 27);
+			//pt.printStr("과일 획득");
+			//std::cout << "과일 획득";
+		}
 		// :: 의미 -> 앞에 네임스페이스명이 없음 -> 전역 네임스페이스(global namespace) -> 사실은 전역 변수 혹은 멤버
 		::Sleep(100); // 현재 실행을 잠시 정지(잠자기, sleep); 단위는 msec
 	}

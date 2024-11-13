@@ -47,6 +47,11 @@ public:
 		m_pt.printChar(m_shape, m_textCol, m_backCol);
 	}
 
+	bool isHit(const Point2& pt) const
+	{
+		return m_pt == pt;
+	}
+
 protected:
 	char m_shape;
 	int m_textCol;

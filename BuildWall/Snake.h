@@ -41,6 +41,10 @@ public:
 	{
 		return m_nDir;
 	}
+	Point2 getPt(void) const
+	{
+		return m_pt;
+	}
 
 	// setter
 	void setShape(char shape)
@@ -63,8 +67,15 @@ public:
 		m_pt.printChar(m_shape, m_textCol, m_backCol);
 	}
 
+	void erase(void) // 현재 뱀의 위치를 지우기
+	{
+		m_pt.printChar(' ', mglib::BLACK, mglib::BLACK);
+	}
+
 	void move(void)
 	{
+		if (m_nDir != SnakeDir::DEF_NULL) erase();
+
 		switch (m_nDir)
 		{
 		case SnakeDir::LEFT:
