@@ -58,6 +58,11 @@ int main(void)
 			//pt.printStr("과일 획득");
 			//std::cout << "과일 획득";
 		}
+		else if (rectWall.isHit(snake.getPt()))
+		{
+			std::cout << "Game Over!";
+			break;
+		}
 		// :: 의미 -> 앞에 네임스페이스명이 없음 -> 전역 네임스페이스(global namespace) -> 사실은 전역 변수 혹은 멤버
 		::Sleep(100); // 현재 실행을 잠시 정지(잠자기, sleep); 단위는 msec
 	}

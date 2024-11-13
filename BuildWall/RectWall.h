@@ -30,6 +30,15 @@ public:
 		m_VWall.makeVWall(Point2(pt1.getX() + xLen - 1, pt1.getY()), yLen);
 	}
 
+	bool isHit(const Point2& pt)
+	{
+		if (m_pt1.getX() == pt.getX()) return true;
+		else if (m_pt2.getX() == pt.getX()) return true;
+		else if (m_pt1.getY() == pt.getY()) return true;
+		else if (m_pt2.getY() == pt.getY()) return true;
+		else return false;
+	}
+
 protected:
 	Wall m_HWall;	// 수평 벽
 	Wall m_VWall;	// 수직 벽
