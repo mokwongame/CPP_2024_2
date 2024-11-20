@@ -115,18 +115,25 @@ public: // : 의미는 그룹을 뜻함
 		printChar(ch);
 	}
 
+	void printStr(const std::string& str, int textCol, int backCol = mglib::BLACK)
+	{
+		mglib::setbacktextcol(backCol, textCol);
+		mglib::gotoxy(m_x, m_y);
+		std::cout << str;
+	}
+
 	// 정적(static) 멤버(공통되는 멤버는 메모리를 고정해서 사용: 메모리 효율 향상) 연습용 코드
 	static void printStr(const std::string& str) // 아래 코드는 멤버 변수(property)에 접근하지 않음 -> 정적 멤버로 선언하면 효율적임
 	{
 		using namespace std;
 		//std::cout << "static test code" << std::endl;
 		// string 클래스의 사용법 찾기: Microsoft Learn에서 string 클래스로 검색
-		std::cout << str << std::endl;
+		std::cout << str;
 		// string 길이 얻기: length()
-		cout << str.length() << endl;
-		string str2 = "[" + str + "]"; // 문자열에 다른 문자열 붙이기
-		cout << str2 << endl;
-		cout << str2.length() << endl;
+		//cout << str.length() << endl;
+		//string str2 = "[" + str + "]"; // 문자열에 다른 문자열 붙이기
+		//cout << str2 << endl;
+		//cout << str2.length() << endl;
 	}
 
 	// 연산자 중복(operator overloading)

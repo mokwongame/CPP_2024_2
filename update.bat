@@ -1,4 +1,4 @@
 chcp 65001
 git add --all
-git commit -m "기존 게임을 객체 지향으로 변경"
+git commit -m "SnakeGame 프로젝트의 샘플 제시"
 git push -u origin master

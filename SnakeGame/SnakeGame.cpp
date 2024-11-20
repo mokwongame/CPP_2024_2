@@ -19,6 +19,8 @@ SnakeGame::SnakeGame(void)
 	m_snake.setDir(SnakeDir::DEF_NULL);
 	m_snake.draw(Point2(m_nWallWid / 2, m_nWallHt / 2));
 
+	drawLogo();
+	drawScore();
 	mglib::hidecursor(); // 커서 숨기기
 }
 
@@ -55,6 +57,9 @@ void SnakeGame::start(void)
 		if (m_fruit.isHit(m_snake.getPt()))
 		{
 			m_nScore++;
+			drawScore();
+			// Fruit을 다시 생성
+			m_fruit.draw(Point2(1, 1), Point2(m_nWallWid - 1, m_nWallHt - 1));
 		}
 		else if (m_rectWall.isHit(m_snake.getPt()))
 		{
@@ -62,6 +67,21 @@ void SnakeGame::start(void)
 			break;
 		}
 		// :: 의미 -> 앞에 네임스페이스명이 없음 -> 전역 네임스페이스(global namespace) -> 사실은 전역 변수 혹은 멤버
-		::Sleep(100); // 현재 실행을 잠시 정지(잠자기, sleep); 단위는 msec
+		::Sleep(m_nSleep); // 현재 실행을 잠시 정지(잠자기, sleep); 단위는 msec
 	}
+}
+
+void SnakeGame::drawLogo(void)
+{
+	Point2 pt(m_nWallWid + 1, 0);
+	pt.printStr("[Snake Game]", mglib::YELLOW);
+}
+
+void SnakeGame::drawScore(void)
+{
+	Point2 pt(m_nWallWid + 1, 2);
+	std::string str = "score = ";
+	// 정수를 문자열로 변환: to_string() 함수 사용
+	std::string sScore = std::to_string(m_nScore);
+	pt.printStr(str + sScore, mglib::GREEN);
 }
