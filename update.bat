@@ -1,4 +1,4 @@
 chcp 65001
 git add --all
-git commit -m "클래스의 상속 공부"
+git commit -m "CarRace 프로젝트 시작"
 git push -u origin master
