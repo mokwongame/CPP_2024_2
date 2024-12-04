@@ -3,7 +3,7 @@
 Road::Road(void)
 {
 	m_pt1 = Point2(0, 0);
-	m_pt2 = Point2(80, 27);
+	m_pt2 = Point2(78, 27);
 	m_roadCol = mglib::DARK_BLUE;
 	m_lineCol = mglib::YELLOW;
 
@@ -46,4 +46,30 @@ void Road::drawBack(void)
 void Road::drawAllLines(void)
 {
 	int nLineCount = getSizeX() / m_nLaneSize;
+	for (int i = 1; i <= nLineCount; i++)
+	{
+		int x = i * m_nLaneSize;
+		drawLine(x);
+	}
+}
+
+void Road::drawLine(int x)
+{
+	int y = m_pt1.getY();
+	Point2 pt(x, y);
+	while (1)
+	{
+		for (int j = 0; j < m_nLineLen; j++)
+		{
+			if (pt.getY() > m_pt2.getY()) return;
+			pt.printChar(' ', m_lineCol, m_lineCol);
+			pt.moveDown();
+		}
+		for (int j = 0; j < m_nLineLen; j++)
+		{
+			if (pt.getY() > m_pt2.getY()) return;
+			pt.printChar(' ', m_roadCol, m_roadCol);
+			pt.moveDown();
+		}
+	}
 }

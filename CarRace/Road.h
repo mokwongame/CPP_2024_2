@@ -27,5 +27,6 @@ protected:
 
 	void drawBack(void);
 	void drawAllLines(void);
+	void drawLine(int x);
 };
 
