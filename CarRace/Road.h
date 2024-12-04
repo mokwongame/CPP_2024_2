@@ -9,10 +9,23 @@ public:
 	~Road(void)
 	{}
 
+	// getter
+	int getSizeX(void) const;
+	int getSizeY(void) const;
+
+	void draw(void);
+
 protected:
 	// property
 	Point2 m_pt1; // 왼쪽 상단 점
 	Point2 m_pt2; // 오른쪽 하단 점
 	int m_roadCol;	// 도로 색깔
+	int m_lineCol;	// 차선 색깔
+
+	int m_nLineLen; // 차선 길이
+	int m_nLaneSize; // 차선 간격
+
+	void drawBack(void);
+	void drawAllLines(void);
 };
 
