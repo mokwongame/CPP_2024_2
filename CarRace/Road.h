@@ -14,6 +14,9 @@ public:
 	int getSizeY(void) const;
 
 	void draw(void);
+	void drawAllLines(void);
+
+	void moveDown(void);
 
 protected:
 	// property
@@ -24,9 +27,10 @@ protected:
 
 	int m_nLineLen; // 차선 길이
 	int m_nLaneSize; // 차선 간격
+	int m_nLineOffset;
 
 	void drawBack(void);
-	void drawAllLines(void);
-	void drawLine(int x);
+	void drawBottomLine(int x);
+	void drawTopLine(int x);
 };
 

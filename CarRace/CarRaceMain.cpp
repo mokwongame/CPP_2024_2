@@ -4,12 +4,20 @@
 // 상대방 자동차: 우리 자동차를 상속받아서 사용
 
 #include <conio.h>
+#include <Windows.h>
 #include "Road.h"
 
 int main(void)
 {
 	Road road;
 	road.draw();
+
+	while (1)
+	{
+		road.moveDown();
+		road.drawAllLines();
+		::Sleep(100);
+	}
 
 	while (!_kbhit()); // 사용자가 키보드(kb)를 히트(hit)하지 않으면(!) 계속 반복(while)
 	return 0;

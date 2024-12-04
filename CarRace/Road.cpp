@@ -9,6 +9,7 @@ Road::Road(void)
 
 	m_nLineLen = 4;
 	m_nLaneSize = 20;
+	m_nLineOffset = 0;
 }
 
 int Road::getSizeX(void) const
@@ -49,13 +50,21 @@ void Road::drawAllLines(void)
 	for (int i = 1; i <= nLineCount; i++)
 	{
 		int x = i * m_nLaneSize;
-		drawLine(x);
+		drawBottomLine(x);
+		drawTopLine(x);
 	}
 }
 
-void Road::drawLine(int x)
+void Road::moveDown(void)
 {
-	int y = m_pt1.getY();
+	m_nLineOffset++;
+	if (m_nLineOffset >= getSizeY())
+		m_nLineOffset = 0;
+}
+
+void Road::drawBottomLine(int x)
+{
+	int y = m_pt1.getY() + m_nLineOffset;
 	Point2 pt(x, y);
 	while (1)
 	{
@@ -70,6 +79,27 @@ void Road::drawLine(int x)
 			if (pt.getY() > m_pt2.getY()) return;
 			pt.printChar(' ', m_roadCol, m_roadCol);
 			pt.moveDown();
+		}
+	}
+}
+
+void Road::drawTopLine(int x)
+{
+	int y = m_pt1.getY() + m_nLineOffset - 1;
+	Point2 pt(x, y);
+	while (1)
+	{
+		for (int j = 0; j < m_nLineLen; j++)
+		{
+			if (pt.getY() < m_pt1.getY()) return;
+			pt.printChar(' ', m_roadCol, m_roadCol);
+			pt.moveUp();
+		}
+		for (int j = 0; j < m_nLineLen; j++)
+		{
+			if (pt.getY() < m_pt1.getY()) return;
+			pt.printChar(' ', m_lineCol, m_lineCol);
+			pt.moveUp();
 		}
 	}
 }
