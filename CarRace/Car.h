@@ -52,6 +52,11 @@ public:
 
 	void erase(void);
 
+	int bottom(void) const
+	{
+		return m_rect.bottom();
+	}
+
 protected:
 	Rect m_rect;
 	int m_nCarCol;

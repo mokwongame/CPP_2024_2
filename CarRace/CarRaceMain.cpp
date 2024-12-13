@@ -9,8 +9,18 @@
 #include "Car.h"
 #include "LibGameTool.hpp"
 
+void drawScore(int score)
+{
+	Point2 pt(80, 0);
+	std::string str;
+	str = "score = ";
+	str += std::to_string(score); // 정수인 score를 문자열(string)로 바꿈(to)
+	pt.printStr(str, mglib::YELLOW, mglib::BLACK);
+}
+
 int main(void)
 {
+	int nScore = 0;
 	mglib::randseed(); // 난수 초기화
 	mglib::hidecursor(); // 깜박이는 커서 숨기기
 
@@ -18,7 +28,7 @@ int main(void)
 	road.draw();
 
 	Car car; // Car 클래스로 인스턴스 car를 생성 -> 생성자가 저절로 호출
-	car.makeCar(Point2(35, 24), 6, 4);
+	car.makeCar(Point2(35, 25), 6, 4);
 	car.setCarCol(mglib::GREEN);
 	car.setRoadCol(road.getRoadCol());
 	car.setStep(2);
@@ -53,10 +63,21 @@ int main(void)
 
 		enemy.erase();
 		enemy.moveDown();
+		if (enemy.bottom() > road.bottom())
+		{
+			enemy.makeCar(road.makeRandPt(), 6, 4);
+		}
 		enemy.draw();
 
+		// 충돌 감지
+		if (car.getRect().rectInRect(enemy.getRect()))
+		{
+			break; // 게임 종료
+		}
 		car.draw();
 
+		nScore++;
+		drawScore(nScore);
 		::Sleep(100);
 	}
 

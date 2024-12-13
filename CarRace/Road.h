@@ -24,6 +24,11 @@ public:
 
 	Point2 makeRandPt(void) const;
 
+	int bottom(void) const
+	{
+		return m_pt2.getY();
+	}
+
 protected:
 	// property
 	Point2 m_pt1; // 왼쪽 상단 점

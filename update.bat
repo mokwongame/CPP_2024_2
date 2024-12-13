@@ -1,4 +1,4 @@
 chcp 65001
 git add --all
-git commit -m "적 자동차 움직이기"
+git commit -m "CarRace 프로젝트 완성"
 git push -u origin master
