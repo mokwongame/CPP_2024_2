@@ -14,8 +14,8 @@ int main(void)
 	road.draw();
 
 	Car car; // Car 클래스로 인스턴스 car를 생성 -> 생성자가 저절로 호출
-	car.makeCar(Point2(32, 22), 4, 4);
-	car.setCarCol(mglib::YELLOW);
+	car.makeCar(Point2(35, 24), 6, 4);
+	car.setCarCol(mglib::GREEN);
 	car.setRoadCol(road.getRoadCol());
 	car.draw();
 
