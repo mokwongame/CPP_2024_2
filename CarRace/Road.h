@@ -12,6 +12,10 @@ public:
 	// getter
 	int getSizeX(void) const;
 	int getSizeY(void) const;
+	int getRoadCol(void) const
+	{
+		return m_roadCol;
+	}
 
 	void draw(void);
 	void drawAllLines(void);

@@ -6,11 +6,18 @@
 #include <conio.h>
 #include <Windows.h>
 #include "Road.h"
+#include "Car.h"
 
 int main(void)
 {
 	Road road;
 	road.draw();
+
+	Car car; // Car 클래스로 인스턴스 car를 생성 -> 생성자가 저절로 호출
+	car.makeCar(Point2(32, 22), 4, 4);
+	car.setCarCol(mglib::YELLOW);
+	car.setRoadCol(road.getRoadCol());
+	car.draw();
 
 	while (1)
 	{
