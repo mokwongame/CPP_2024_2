@@ -1,4 +1,5 @@
 #include "Road.h"
+#include "LibGameTool.hpp"
 
 Road::Road(void)
 {
@@ -60,6 +61,13 @@ void Road::moveDown(void)
 	m_nLineOffset++;
 	if (m_nLineOffset >= getSizeY())
 		m_nLineOffset = 0;
+}
+
+Point2 Road::makeRandPt(void) const
+{
+	int x = mglib::randrange(m_pt1.getX() + 2, m_pt2.getX() - 2);
+	int y = 2;
+	return Point2(x, y);
 }
 
 void Road::drawBottomLine(int x)

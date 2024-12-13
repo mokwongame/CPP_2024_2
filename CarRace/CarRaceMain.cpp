@@ -7,9 +7,11 @@
 #include <Windows.h>
 #include "Road.h"
 #include "Car.h"
+#include "LibGameTool.hpp"
 
 int main(void)
 {
+	mglib::randseed(); // 난수 초기화
 	mglib::hidecursor(); // 깜박이는 커서 숨기기
 
 	Road road;
@@ -21,6 +23,13 @@ int main(void)
 	car.setRoadCol(road.getRoadCol());
 	car.setStep(2);
 	car.draw();
+
+	Car enemy;
+	enemy.makeCar(road.makeRandPt(), 6, 4);
+	enemy.setCarCol(mglib::DARK_RED);
+	enemy.setRoadCol(road.getRoadCol());
+	enemy.setStep(1);
+	enemy.draw();
 
 	while (1)
 	{
@@ -41,6 +50,10 @@ int main(void)
 
 		road.moveDown();
 		road.drawAllLines();
+
+		enemy.erase();
+		enemy.moveDown();
+		enemy.draw();
 
 		car.draw();
 

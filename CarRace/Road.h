@@ -22,6 +22,8 @@ public:
 
 	void moveDown(void);
 
+	Point2 makeRandPt(void) const;
+
 protected:
 	// property
 	Point2 m_pt1; // 왼쪽 상단 점

@@ -134,6 +134,7 @@
   <ItemGroup>
     <ClInclude Include="Car.h" />
     <ClInclude Include="LibConsole.h" />
+    <ClInclude Include="LibGameTool.h" />
     <ClInclude Include="Road.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

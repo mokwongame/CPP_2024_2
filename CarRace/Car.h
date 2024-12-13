@@ -45,6 +45,10 @@ public:
 	{
 		move(m_step, 0);
 	}
+	void moveDown(void)
+	{
+		move(0, m_step);
+	}
 
 	void erase(void);
 
