@@ -37,3 +37,25 @@ void Car::draw(void)
 		pt.printChar(' ', m_nRoadCol, m_nRoadCol);
 	}
 }
+
+void Car::erase(void)
+{
+	// 사각형 색칠하기
+	for (int x = m_rect.left() - 1; x <= m_rect.right() + 1; x++)
+	{
+		for (int y = m_rect.top(); y <= m_rect.bottom(); y++)
+		{
+			Point2 pt(x, y);
+			pt.printChar(' ', m_nRoadCol, m_nRoadCol);
+		}
+	}
+}
+
+void Car::move(int dx, int dy)
+{
+	Point2 pt1 = m_rect.topLeft();
+	Point2 pt2 = m_rect.bottomRight();
+	pt1 = pt1 + Point2(dx, dy);
+	pt2 = pt2 + Point2(dx, dy);
+	m_rect = Rect(pt1, pt2);
+}

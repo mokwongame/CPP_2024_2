@@ -10,6 +10,8 @@
 
 int main(void)
 {
+	mglib::hidecursor(); // ±ô¹ÚÀÌ´Â Ä¿¼­ ¼û±â±â
+
 	Road road;
 	road.draw();
 
@@ -17,12 +19,31 @@ int main(void)
 	car.makeCar(Point2(35, 24), 6, 4);
 	car.setCarCol(mglib::GREEN);
 	car.setRoadCol(road.getRoadCol());
+	car.setStep(2);
 	car.draw();
 
 	while (1)
 	{
+		if (_kbhit())
+		{
+			int key = mglib::getkey();
+			if (key == mglib::IK_LEFT)
+			{
+				car.erase();
+				car.moveLeft();
+			}
+			else if (key == mglib::IK_RIGHT)
+			{
+				car.erase();
+				car.moveRight();
+			}
+		}
+
 		road.moveDown();
 		road.drawAllLines();
+
+		car.draw();
+
 		::Sleep(100);
 	}
 

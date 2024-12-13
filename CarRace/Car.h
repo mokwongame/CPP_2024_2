@@ -29,13 +29,31 @@ public:
 	{
 		m_nRoadCol = col;
 	}
+	void setStep(int step)
+	{
+		m_step = step;
+	}
 
 	void makeCar(const Point2 ptCtr, int nWid, int nHt);
 	void draw(void);
+
+	void moveLeft(void)
+	{
+		move(-m_step, 0);
+	}
+	void moveRight(void)
+	{
+		move(m_step, 0);
+	}
+
+	void erase(void);
 
 protected:
 	Rect m_rect;
 	int m_nCarCol;
 	int m_nRoadCol;
+	int m_step = 1;
+
+	void move(int dx, int dy);
 };
 
